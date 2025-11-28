@@ -28,6 +28,9 @@ public class Movements : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
 
+    public float padding = 0.5f;
+    private Camera cam;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +40,7 @@ public class Movements : MonoBehaviour
         {
             charges[i] = new Charge(dashCooldown);
         }
+        cam = Camera.main;
     }
 
     void Update()
@@ -90,6 +94,23 @@ public class Movements : MonoBehaviour
             rb.MovePosition(rb.position + dashDirection * dashSpeed * Time.fixedDeltaTime);
         else
             rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+
+        ClampToScreen();
+    }
+
+    void ClampToScreen()
+    {
+        if (cam == null) return;
+
+        Vector3 pos = transform.position;
+
+        Vector3 min = cam.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        Vector3 max = cam.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+
+        pos.x = Mathf.Clamp(pos.x, min.x + padding, max.x - padding);
+        pos.y = Mathf.Clamp(pos.y, min.y + padding, max.y - padding);
+
+        transform.position = pos;
     }
 
     void TryDash()
