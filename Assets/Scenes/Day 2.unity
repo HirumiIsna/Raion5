@@ -2621,6 +2621,7 @@ MonoBehaviour:
   chargeCount: 2
   animator: {fileID: 1556072015}
   explosionPrefab: {fileID: 6037937787104302011, guid: bc66e9f15c132a24dbe55d952738df73, type: 3}
+  padding: 0.5
 --- !u!212 &1556072011
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3297,7 +3298,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a34b33536dc4c9048982b44399c35648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2449913453563818258, guid: 746a74c4af39f434094f56df2e4dbfc1, type: 3}
+  enemyPrefabs:
+  - {fileID: 2449913453563818258, guid: 746a74c4af39f434094f56df2e4dbfc1, type: 3}
+  - {fileID: 2449913453563818258, guid: 761e3ab1acc46d340a90a6e133c925c3, type: 3}
+  spawnWeights: []
   spawnInterval: 1
   spawnBoundaryY: 4
   spawnBoundaryX: 10
