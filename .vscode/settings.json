@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "NewRaion5Main.slnx"
+    "dotnet.defaultSolution": "Raion5.slnx"
 }
