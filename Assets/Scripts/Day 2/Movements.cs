@@ -16,6 +16,7 @@ public class Movements : MonoBehaviour
     public int chargeCount = 2;
     private Charge[] charges;
 
+    [Header("Animation")]
     [SerializeField] private Animator animator;
 
     private bool isDashing = false;
